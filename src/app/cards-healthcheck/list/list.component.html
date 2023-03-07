@@ -1,0 +1,138 @@
+
+<!-- Striped Rows -->
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Cards-Digital /</span> Services</h4>
+<div class="card">
+
+<!-- #################################################################################################### -->
+
+<div class="card-datatable">
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+      <div class="row p-xxl-3 ms-2 me-3">
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+          <div class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start mt-md-0 mt-3">
+            <div class="dt-buttons btn-group flex-wrap">
+
+              <button class="btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button">
+                <span class="bx bx-plus me-md-1" href="#" routerLink="/cards-healthcheck/add">Add ServiceAPI
+
+                </span>
+              </button>
+             </div>
+           </div>
+         </div>
+      <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end flex-column flex-md-row pe-3 gap-md-2">
+
+
+        <div class="invoice_status mb-3 mb-md-0">
+          <select id="UserRole" class="form-select btn-primary">
+            <option value=""> Select Region </option>
+            <option value="Downloaded" class="text-capitalize">Development</option>
+            <option value="Draft" class="text-capitalize">Test</option>
+            <option value="Paid" class="text-capitalize">Preprod</option>
+            <option value="Partial Payment" class="text-capitalize">Production</option>
+          </select>
+        </div>
+        <div class="invoice_status mb-3 mb-md-0">
+          <select id="UserRole" class="form-select btn-primary">
+            <option value=""> Select Environment </option>
+            <option value="Downloaded" class="text-capitalize">Development</option>
+            <option value="Draft" class="text-capitalize">Test</option>
+            <option value="Paid" class="text-capitalize">Preprod</option>
+            <option value="Partial Payment" class="text-capitalize">Production</option>
+          </select>
+        </div>
+        <div id="DataTables_Table_0_filter" class="dataTables_filter btn-primary">
+          <label>
+            <input type="search" class="form-control" placeholder="Search Service Name" aria-controls="DataTables_Table_0">
+          </label>
+        </div>
+      </div>
+    </div>
+    <table class="invoice-list-table table border-top dataTable no-footer dtr-column" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" style="width: 1213px;">
+      <thead>
+        <tr>
+          <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 34px;" aria-label="#ID: activate to sort column ascending" aria-sort="descending">#ID</th>
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 30px;" aria-label=": activate to sort column ascending"><i class="bx bx-trending-up">Region</i></th>
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 88px;" aria-label="Client: activate to sort column ascending">API Name</th>
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 150px;" aria-label="Total: activate to sort column ascending">API Service URL</th>
+          <th class="text-truncate sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 37px;" aria-label="Issued Date: activate to sort column ascending">Environment</th>
+          <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 33px;" aria-label="Balance">Status</th>
+          <th class="cell-fit sorting_disabled" rowspan="1" colspan="1" style="width: 76px;" aria-label="Actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd" *ngFor="let apiService of apiServicesList">
+          <td class="  control" tabindex="0" style="display: none;"></td>
+          <td class="sorting_1"><a href="#" [routerLink]="['/cards-healthcheck/', apiService.id, 'view']">#{{ apiService.id }}</a></td>
+          <td> <span class="d-none"></span> {{ apiService.region }}
+
+          </td>
+          <td>
+            <div class="d-flex justify-content-start align-items-center">
+              <div class="d-flex flex-column">
+                <a href="pages-profile-user.html" class="text-body text-truncate fw-semibold">{{ apiService.apiName }}</a>
+                  <small class="text-truncate text-muted">{{ apiService.description }}</small>
+              </div>
+            </div>
+          </td>
+          <td><span class="d-none"></span>{{ apiService.apiServiceURL }}</td>
+          <td><span class="d-none"></span>{{ apiService.environment }}</td>
+          <td><span class="badge bg-label-success"> {{ 'Active' }} </span></td>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="dropdown">
+                <a class="dropdown-toggle bx hide-arrow text-body p-0" data-bs-toggle="dropdown">
+                  <i class="btn btn btn-secondary bx bx-dots"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" *ngIf="showAdminBoard">
+
+                  <a href="#"
+                          [routerLink]="['/cards-healthcheck/', apiService.id, 'edit']" class="dropdown-item">Edit</a>
+
+                  <div class="dropdown-divider"></div>
+                  <a (click)="deleteApiService(apiService.id)" class="dropdown-item delete-record text-danger">Delete</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr scope="row" *ngIf="apiServicesList.length === 0">
+          <td colspan="6" class="text-center">No record found</td>
+        </tr>
+      </tbody>
+    </table>
+    <!--<div class="row mx-2 p-xxl-3"><div class="col-sm-12 col-md-6">
+      <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 50 entries</div>
+    </div>
+    <div class="col-sm-12 col-md-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+    <ul class="pagination">
+    <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="previous" tabindex="0" class="page-link">Previous</a>
+    </li>
+    <li class="paginate_button page-item active">
+    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">1</a>
+    </li>
+    <li class="paginate_button page-item ">
+    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">2</a>
+    </li>
+    <li class="paginate_button page-item ">
+    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">3</a>
+    </li>
+    <li class="paginate_button page-item ">
+    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">4</a>
+    </li>
+    <li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="4" tabindex="0" class="page-link">5</a></li>
+    <li class="paginate_button page-item next" id="DataTables_Table_0_next">
+    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="next" tabindex="0" class="page-link">Next</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>-->
+    </div>
+  </div>
+
+<!-- #################################################################################################### -->
+
+</div>
+<!--/ Striped Rows -->

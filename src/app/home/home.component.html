@@ -1,0 +1,130 @@
+<!-- Content wrapper -->
+<div class="content-wrapper" *ngIf="showAdminBoard">
+  <!-- Content -->
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Cards-Digital /</span> Dashboard</h4>
+    <ul class="nav nav-pills flex-column flex-md-row mb-3">
+      <li class="nav-item">
+        <a class="nav-link active" href="#"
+          ><i class="bx bx-user me-1"></i> Manage Users</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"
+          ><i class="bx bx-bell me-1"></i>Add New User</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"
+          ><i class="bx bx-link-alt me-1"></i>Reset Password</a
+        >
+      </li>
+    </ul>
+    <div class="row">
+      <div class="col-lg-12 mb-4 order-0">
+        <div class="card">
+          <!-- #################################################################################################### -->
+
+          <div class="card-datatable">
+              <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                <div class="row p-xxl-3 ms-2 me-3">
+                  <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+                    <div class="dt-buttons btn-group flex-wrap">
+
+                    </div>
+                  </div>
+                <div class="col-12 col-md-6 d-flex align-items-center justify-content-end flex-column flex-md-row pe-3 gap-md-2">
+                  <div class="invoice_status mb-3 mb-md-0">
+                    <select id="environment" class="form-select">
+                      <option value=""> Select Environment </option>
+                      <option value="dev" class="text-capitalize">Development</option>
+                      <option value="preprod" class="text-capitalize">Preprod</option>
+                      <option value="prod" class="text-capitalize">Production</option>
+                    </select>
+                  </div>
+                  <div class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start mt-md-0 mt-3">
+                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                      <label>
+                        <input type="search" class="form-control" placeholder="Search User" aria-controls="DataTables_Table_0">
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <table class="invoice-list-table table border-top dataTable no-footer dtr-column" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" style="width: 1212px;">
+                <thead>
+                  <tr>
+                    <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 84px;" aria-label="#ID: activate to sort column ascending" aria-sort="descending">#ID</th>
+                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 60px;" aria-label=": activate to sort column ascending"><i class="bx bx-trending-up">C-Number</i></th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 88px;" aria-label="Balance">Username</th>
+                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 100px;" aria-label="Client: activate to sort column ascending">Full Name</th>
+                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 150px;" aria-label="Total: activate to sort column ascending">Santander Email</th>
+                    <th class="text-truncate sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 88px;" aria-label="Issued Date: activate to sort column ascending">Contact No</th>
+                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 30px;" aria-label="Balance">Environment</th>
+
+                    <th class="cell-fit sorting_disabled" rowspan="1" colspan="1" style="width: 76px;" aria-label="Actions">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="odd" *ngFor="let apiUser of apiUsersList">
+                    <td class="  control" tabindex="0" style="display: none;"></td>
+                    <td class="sorting_1"><a href="app-invoice-preview.html">#{{ apiUser.id }}</a></td>
+                    <td>
+                      <span data-bs-toggle="tooltip" data-bs-html="true" aria-label="<span>Sent<br> Balance: 0<br> Due Date: 05/09/2020</span>" data-bs-original-title="<span>Sent<br> Balance: 0<br> Due Date: 05/09/2020</span>">
+                        <span class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30">
+                          {{ apiUser.dispyName }}
+                        </span>
+                      </span>
+                    </td>
+                    <td>
+                      <div class="d-flex justify-content-start align-items-center">
+                        <div class="avatar-wrapper"><div class="avatar avatar-sm me-2">
+                          <span class="avatar-initial rounded-circle bg-label-primary">JK</span>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <a href="pages-profile-user.html" class="text-body text-truncate fw-semibold">{{ apiUser.emai }}</a>
+                          <small class="text-truncate text-muted">Software Development</small>
+                      </div>
+                    </div>
+                    </td>
+                    <td><span class="d-none">3077</span></td>
+                    <td><span class="d-none">20200509</span></td>
+                    <td><span class="badge bg-label-success"> Active </span></td>
+                    <td>
+                      <!--<div class="d-flex align-items-center">
+                        <div class="dropdown">
+                          <a class="btn dropdown-toggle hide-arrow text-body p-0" data-bs-toggle="dropdown">
+                            <i class="bx bx-dots-vertical-rounded"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#"
+                                    [routerLink]="['/cards-healthcheck/', apiUser.id, 'view']">View</a>
+                            <a href="#"
+                                    [routerLink]="['/cards-healthcheck/', apiUser.id, 'edit']" class="dropdown-item">Edit</a>
+
+                            <div class="dropdown-divider"></div>
+                            <a (click)="deleteApiService(apiUser.id)" class="dropdown-item delete-record text-danger">Delete</a>
+                          </div>
+                        </div>
+                      </div>-->
+                    </td>
+                  </tr>
+                  <tr scope="row" *ngIf="apiUsersList.length === 0">
+                    <td colspan="6" class="text-center">No record found</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              </div>
+            </div>
+
+          <!-- #################################################################################################### -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+      <!-- Transactions -->
+
+  <!-- / Content -->

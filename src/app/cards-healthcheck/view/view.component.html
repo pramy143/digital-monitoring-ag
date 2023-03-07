@@ -1,0 +1,32 @@
+<div class="container">
+    <h5 class="text-center">{{ apiService?.apiName }} DETAILS</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered p-0 m-0">
+            <tbody>
+                <tr scope="row">
+                    <th>Region</th>
+                    <td>{{ apiService?.region }}</td>
+                </tr>
+                <tr scope="row">
+                    <th>Api Name</th>
+                    <td>{{ apiService?.apiName }}</td>
+                </tr>
+                <tr scope="row">
+                    <th>Api Service Url</th>
+                    <td>{{ apiService?.apiServiceURL }}</td>
+                </tr>
+                <tr scope="row">
+                    <th>Description</th>
+                    <td>{{ apiService?.description }}</td>
+                </tr>
+                <tr scope="row">
+                    <th>Environment</th>
+                    <td>{{ apiService?.environment }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex">
+        <a href="#" routerLink="/cards-healthcheck/list" class="btn btn-primary mt-2 ">Back</a>
+    </div>
+</div>

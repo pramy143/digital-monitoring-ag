@@ -1,0 +1,107 @@
+
+<!-- Striped Rows -->
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Cards-Digital /</span> Profile</h4>
+<!--<div class="card">
+<div class="container" *ngIf="currentUser; else loggedOut">
+	<div>
+		<h6 class="text-muted py-5">
+			<strong>{{ currentUser.displayName }}</strong> Profile
+		</h6>
+	</div>
+	<p>
+		<strong>Email:</strong> {{ currentUser.email }}
+	</p>
+	<strong>Roles:</strong>
+	<ul>
+		<li *ngFor="let role of currentUser.roles">{{ role }}</li>
+	</ul>
+</div>
+<ng-template #loggedOut> Please login. </ng-template>
+</div>-->
+<div class="content-wrapper" >
+	<!-- Content -->
+
+		<!-- Basic Layout & Basic with Icons -->
+		<div class="row">
+			<!-- Basic Layout -->
+			<div class="col-md-8">
+				<div class="card mb-4">
+					<div class="card-header d-flex align-items-center justify-content-between">
+						<h5 class="mb-0">{{ currentUser.displayName }} Profie</h5>
+					</div>
+					<div class="card-body">
+						<form>
+							<div class="row mb-3">
+								<label class="col-sm-2 col-form-label" for="basic-default-name">C-Number</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="basic-default-name" placeholder="C-Number" />
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label class="col-sm-2 col-form-label" for="basic-default-company">Full Name</label>
+								<div class="col-sm-10">
+									<input
+										type="text"
+										class="form-control"
+										id="basic-default-company"
+										placeholder="ACME Inc."
+									/>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label class="col-sm-2 col-form-label" for="basic-default-email">Santander EmailId</label>
+								<div class="col-sm-10">
+									<div class="input-group input-group-merge">
+										<input
+											type="text"
+											id="basic-default-email"
+											class="form-control"
+											placeholder="john.doe"
+											aria-label="john.doe"
+											aria-describedby="basic-default-email2"
+										/>
+									</div>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label class="col-sm-2 col-form-label" for="basic-default-phone">Contact No</label>
+								<div class="col-sm-10">
+									<input
+										type="text"
+										id="basic-default-phone"
+										class="form-control phone-mask"
+										placeholder="658 799 8941"
+										aria-label="658 799 8941"
+										aria-describedby="basic-default-phone"
+									/>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label class="col-sm-2 col-form-label" for="basic-default-message">Message</label>
+								<div class="col-sm-10">
+									<textarea
+										id="basic-default-message"
+										class="form-control"
+										placeholder="Hi, Do you have a moment to talk Joe?"
+										aria-label="Hi, Do you have a moment to talk Joe?"
+										aria-describedby="basic-icon-default-message2"
+									></textarea>
+								</div>
+							</div>
+							<div class="row justify-content-end">
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-primary">Update Profile</button>
+									<button type="submit" class="btn btn-primary">Reset Profile</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Basic with Icons -->
+
+		</div>
+	</div>
+	<!-- / Content -->
+
+	<div class="content-backdrop fade"></div>

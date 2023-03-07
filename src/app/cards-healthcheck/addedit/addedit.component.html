@@ -1,0 +1,105 @@
+  <!-- Content -->
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Cards-Digital/</span> Add Service</h4>
+  <div class="card col-md-10">
+
+
+    <!-- Basic Layout & Basic with Icons -->
+
+    <div class="row">
+      <!-- Basic Layout -->
+
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col s12">
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="apiName">Region</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" name="region" formControlName="region" placeholder="PAAS .... etc" />
+                </div>
+                <div class="alert-danger">
+                    <div *ngIf="form.controls.region.touched && form.controls.region.errors?.required">* Required</div>
+                    <div *ngIf="form.controls.region.touched && form.controls.region.errors?.minlength">Minimum length is {{form.controls.region.errors?.minlength.requiredLength}}
+                        and actual is {{form.controls.region.errors?.minlength.actualLength}}</div>
+                    <div *ngIf="form.controls.region.touched && form.controls.region.errors?.maxlength">Maximum length is {{form.controls.region.errors?.maxlength.requiredLength}}
+                        and actual is {{form.controls.region.errors?.maxlength.actualLength}}</div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="apiName">Api Name</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" name="apiName" formControlName="apiName" placeholder="Api Name" />
+                </div>
+                <div class="alert-danger">
+                    <div *ngIf="form.controls.apiName.touched && form.controls.apiName.errors?.required">* Required</div>
+                    <div *ngIf="form.controls.apiName.touched && form.controls.apiName.errors?.minlength">Minimum length is {{form.controls.apiName.errors?.minlength.requiredLength}}
+                        and actual is {{form.controls.apiName.errors?.minlength.actualLength}}</div>
+                    <div *ngIf="form.controls.apiName.touched && form.controls.apiName.errors?.maxlength">Maximum length is {{form.controls.apiName.errors?.maxlength.requiredLength}}
+                        and actual is {{form.controls.apiName.errors?.maxlength.actualLength}}</div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="apiServiceURL">Api ServiceUrl</label>
+                <div class="col-sm-7">
+                  <input
+                    type="text" class="form-control" name="apiServiceURL" formControlName="apiServiceURL"
+                    placeholder="Service Url"
+                  />
+                </div>
+                <div class="alert-danger">
+                    <div *ngIf="form.controls.apiServiceURL.touched && form.controls.apiServiceURL.errors?.required">* Required</div>
+                    <div *ngIf="form.controls.apiServiceURL.touched && form.controls.apiServiceURL.errors?.minlength">Minimum length is
+                        {{form.controls.apiServiceURL.errors?.minlength.requiredLength}} and actual is {{form.controls.apiServiceURL.errors?.minlength.actualLength}}</div>
+                    <div *ngIf="form.controls.apiServiceURL.touched && form.controls.apiServiceURL.errors?.maxlength">Maximum length is
+                        {{form.controls.apiServiceURL.errors?.maxlength.requiredLength}} and actual is {{form.controls.apiServiceURL.errors?.maxlength.actualLength}}</div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md">
+    							<small class="text-light fw-semibold d-block col-form-label">Required Access to Environment?</small>
+    							<div class="form-check form-check-inline mt-3">
+    								<input class="form-check-input" type="radio" name="environment" formControlName="environment"  value="dev"/>
+    								<label class="form-check-label chkcontent" for="dev">Development</label>
+    							</div>
+    							<div class="form-check form-check-inline">
+    								<input class="form-check-input" type="radio" name="environment" formControlName="environment"  value="preprod"/>
+    								<label class="form-check-label chkcontent" for="preprod">Preprod</label>
+    							</div>
+    							<div class="form-check form-check-inline">
+    								<input
+    									class="form-check-input"
+    									type="radio"
+    									name="environment" formControlName="environment"
+                      value="prod"
+    									disabled
+    								/>
+    								<label class="form-check-label chkcontent" for="prod">Prod (disabled)</label>
+    							</div>
+    						</div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="description">Message</label>
+                <div class="col-sm-7">
+                  <textarea
+                    id="basic-default-message"
+                    class="form-control"
+                    name="description" formControlName="description"
+                    placeholder="Description about the Service"
+
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row justify-content-end">
+                <div class="col-sm-10">
+                  <button type="cancel" routerLink="/cards-healthcheck/list" class="btn btn-primary">Cancel</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="form.pristine || form.invalid">Create Service</button>
+                  <button type="reset" class="btn btn-primary">Reset Content</button>
+                </div>
+              </div>
+              <div class="alert alert-warning" *ngIf="errorMessage">Failed: {{ errorMessage }}</div>
+          </form>
+          </div>
+        </div>
+      <!-- Basic with Icons -->
+
+    </div>
+  <!-- / Content -->
